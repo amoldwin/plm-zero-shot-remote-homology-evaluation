@@ -6,10 +6,10 @@ Protein language models (PLMs) based on the transformer architecture are increas
 
 ## Resources
 
-- [Paper](https://www.tbd)
-- [Data](https://www.tbd)
+- [Paper](https://www.tbd) Will be added soon.
+- [Data](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation/tree/main/data)
 - [Code](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation)
-- [Analysis Notebooks](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
+- [Analysis](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
 
 ## Installation
 In this study, we keep individual python virtual environment for each PLM to generate embeddings using that PLM and one generic environment for other things, such as data preprocessing, analysis and so on. It is recommended to follow the corresponding instructions to setup repositories of the PLMs. However, we provide our used setup commands in the [notes](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation/tree/main/notes) directory.
@@ -18,7 +18,8 @@ In this study, we keep individual python virtual environment for each PLM to gen
 # Generic python environment
 conda create -c conda-forge -p .venv/python311_conda_remhom python=3.11 -y
 conda activate .venv/python311_conda_remhom
-pip install pandas biopython pyfastx joblib matplotlib seaborn scikit-learn
+pip install pandas biopython pyfastx joblib matplotlib seaborn scikit-learn torchmetrics
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 
 # To deactivate and remove the venv
@@ -48,6 +49,20 @@ conda remove -p .venv/python311_conda_remhom --all -y
 ```
 
 ## Remote Homology Analysis
+* **Activate venv**: ```conda activate .venv/python311_conda_remhom```.
+```bash
+    # To compute performance metrics
+    python -m analysis.compute_performance_metrics --model_name=esm1b_t33_650M_UR50S --data_name=SCOPe --remote_homology_level=superfamily
+    # All results and weighted/unweighted performance metrics across all thresholds 
+    analysis/all_results_and_dataset_statistics.ipynb
+
+``` 
+
+## Raw Performance Metrics
+* data/SCOPe/ranking_results
+* data/SCOP/ranking_results
+* data/SCOP/ranking_results_cdhit_repseq
+* data/SCOP/ranking_results_random_repseq
 
 ## Authors
 
@@ -67,27 +82,4 @@ conda remove -p .venv/python311_conda_remhom --all -y
   publisher={?}
 }
 ```
-
-<!-- # plm-zero-shot-remote-homology-evaluation
-plm-zero-shot-remote-homology-evaluation
-
-
-The SCOP dataset can be downloaded here: https://scop2.mrc-lmb.cam.ac.uk/download
-
-SCOPe can be downloaded here: https://scop.berkeley.edu/astral/ver=2.08
-
-ESM models are available here: https://github.com/facebookresearch/esm 
-
-Prottrans models can be found here: https://github.com/agemagician/ProtTrans
-
-
-Running our code on SCOPe database: 
-
-(1) Download SCOPe data and choose models to evaluate.
-
-(2) Generate embeddings from each model using the appropriate. embed_gen_<model_type>.py script.
-
-(3) Run ipynb notebook preprocess_SCOPe_data.ipynb
-
-(4) Run compute_ranking_metrics.py, making sure to set desired parameters for data_name, remote_homology_level, and model_name in the "main" method. -->
 
