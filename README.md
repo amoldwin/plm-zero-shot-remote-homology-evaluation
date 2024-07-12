@@ -55,12 +55,14 @@ conda remove -p .venv/python311_conda_remhom --all -y
     python -m analysis.compute_performance_metrics --model_name=esm1b_t33_650M_UR50S --data_name=SCOPe --remote_homology_level=superfamily
     # All results and weighted/unweighted performance metrics across all thresholds 
     analysis/all_results_and_dataset_statistics.ipynb
-
+    # To analyze models performance metrics 
+    analysis/plot_performance_comparison.ipynb
+    # To compare models aggrement
+    analysis/plot_performance_aggrement_comparison_with_hhblits.ipynb
 ``` 
 
-## Raw Performance Metrics
+## Raw Performance Metric Scores
 * data/SCOPe/ranking_results
-* data/SCOP/ranking_results
 * data/SCOP/ranking_results_cdhit_repseq
 * data/SCOP/ranking_results_random_repseq
 

@@ -47,3 +47,7 @@ data/SCOPe/contrib_hhblits
 data/SCOP/downloads/
 data/SCOP/embeddings
 *.fxi
+analysis/plots_performance_comparison
+
+# this is big
+data/SCOPe/all_sequences.csv 
