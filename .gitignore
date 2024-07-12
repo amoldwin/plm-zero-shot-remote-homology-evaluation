@@ -40,3 +40,10 @@ deprecated/
 cache
 logs_slurm
 data/SCOPe/downloads_at_th/astral*
+data/SCOPe/.orc-test
+data/SCOPe/embeddings
+data/SCOPe/hhblits*
+data/SCOPe/contrib_hhblits
+data/SCOP/downloads/
+data/SCOP/embeddings
+*.fxi

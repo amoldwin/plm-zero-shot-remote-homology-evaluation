@@ -18,7 +18,7 @@ In this study, we keep individual python virtual environment for each PLM to gen
 # Generic python environment
 conda create -c conda-forge -p .venv/python311_conda_remhom python=3.11 -y
 conda activate .venv/python311_conda_remhom
-pip install pandas biopython joblib matplotlib seaborn scikit-learn
+pip install pandas biopython pyfastx joblib matplotlib seaborn scikit-learn
 
 
 # To deactivate and remove the venv
@@ -28,10 +28,14 @@ conda remove -p .venv/python311_conda_remhom --all -y
 
 ## Data Preprocessing Steps
 * **Activate venv**: ```conda activate .venv/python311_conda_remhom```.
-* **Preprocess SCOPe datasets**: Download SCOPe datasets: SCOPe datasets are publicly available [here](https://scop.berkeley.edu/). Particularly, we download SCOPe 2.08 ASTRAL sequence subsets at different percentage identities (see paper) from [here](https://scop.berkeley.edu/astral/subsets/ver=2.08). Put the downloaded fasta files in "data/SCOPe/downloads_at_ths/" directory.
+
+* **Preprocess SCOPe datasets**: SCOPe datasets are publicly available [here](https://scop.berkeley.edu/). Particularly, we download SCOPe 2.08 ASTRAL sequence subsets at different percentage identities (see paper) from [here](https://scop.berkeley.edu/astral/subsets/ver=2.08). Put the downloaded fasta files in "data/SCOPe/downloads_at_ths/" directory. The following notebook will process the data.
     - ```data_preprocessing/preprocess_SCOPe_data.ipynb```
 
-
+* **Preprocess SCOP2 datasets**: SCOP2 datasets are publicly available [here](https://www.ebi.ac.uk/pdbe/scop/). We download SCOP domain classification and definitions (files: scop-cla-latest.txt, scop-des-latest.txt, scop_fa_represeq_lib_latest.fa ([link](https://www.ebi.ac.uk/pdbe/scop/files))) and put into the "data/SCOP/downloads/" directory. The following notebook will process the data.
+    - ```data_preprocessing/preprocess_SCOP_data.ipynb```
+Next we cluster the processed protein sequences using CD-HIT at different sequence identities. The CD-HIT commands are summarized in "[notes/cdhit_with_blast_setup.txt]()". The clusters at different sequence identity thresholds are in "[data/SCOP/clusters_fa_represeq]()". Next we process the clusters using the following notebook.
+    - ```data_preprocessing/preprocess_SCOP_clusters.ipynb```
 
 ## Protein Sequence Embedding Generation
 
@@ -46,13 +50,13 @@ conda remove -p .venv/python311_conda_remhom --all -y
 
 ## How to cite?
 ```latex
-@article{kabir2024advancing,
-  title={Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},
-  author={Kabir, Anowarul and Bhattarai, Manish and Rasmussen, Kim {\O} and Shehu, Amarda and Bishop, Alan R and Alexandrov, Boian and Usheva, Anny},
-  journal={bioRxiv},
-  pages={2024--01},
+@article{?,
+  title={In the Twilight Zone: How Well do Protein Language Models Learn Protein Structure?},
+  author={Kabir, Anowarul and Moldwin, Asher and Bromberg, Yana and Shehu, Amarda},
+  journal={?},
+  pages={?},
   year={2024},
-  publisher={Cold Spring Harbor Laboratory}
+  publisher={?}
 }
 ```
 
