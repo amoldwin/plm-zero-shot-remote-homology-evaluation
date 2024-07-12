@@ -12,6 +12,19 @@ Protein language models (PLMs) based on the transformer architecture are increas
 - [Analysis Notebooks](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
 
 ## Installation
+In this study, we keep individual python virtual environment for each PLM to generate embeddings using that PLM and one generic environment for other things, such as data preprocessing, analysis and so on. It is recommended to follow the corresponding instructions to setup repositories of the PLMs. However, we provide our used setup commands in the notes directory.
+
+```bash
+# Generic python environment
+conda create -c conda-forge -p .venv/python311_conda_remhom python=3.11 -y
+conda activate .venv/python311_conda_remhom
+pip install pandas joblib matplotlib seaborn scikit-learn
+
+
+# To deactivate and remove the venv
+conda deactivate
+conda remove -p .venv/python311_conda_remhom --all -y
+```
 
 ## Data Preprocessing Steps
 
@@ -26,7 +39,7 @@ Protein language models (PLMs) based on the transformer architecture are increas
 * [Yana Bromberg] (mailto:yana@bromberglab.org)- Department of Computer Science, Emory University
 * [Amarda Shehu] (mailto:ashehu@gmu.edu)- Department of Computer Science, George Mason University
 
-## How to cite EPBD-BERT?
+## How to cite?
 ```latex
 @article{kabir2024advancing,
   title={Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},

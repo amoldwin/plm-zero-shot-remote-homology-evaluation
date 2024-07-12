@@ -1,0 +1,54 @@
+cd-hit user guide 
+http://www.bioinformatics.org/cd-hit/cd-hit-user-guide
+
+cd-hit web-server
+https://github.com/weizhongli/cdhit-web-server/tree/master
+
+installation
+
+cd-hit (standalone) installation
+github: https://github.com/weizhongli/cdhit
+cd /home/akabir/akabir_apps
+git clone https://github.com/weizhongli/cdhit.git 
+cd cdhit
+make
+
+-----------blast+ user manual-----------
+https://www.ncbi.nlm.nih.gov/books/NBK279690/
+
+-----------blast+ installation in linux-----------
+download latest blast+ linux tarball from ftp: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
+filename: ncbi-blast-2.15.0+-x64-linux.tar.gz 
+
+cd Downloads/
+wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.15.0+-x64-linux.tar.gz
+tar -xzvf ncbi-blast-2.15.0+-x64-linux.tar.gz
+mv ncbi-blast-2.15.0+ ncbi-blast-2.15.0
+mv ncbi-blast-2.15.0 ~/akabir_apps/
+cd ~/akabir_apps/ncbi-blast-2.15.0/bin/
+pwd
+>>> /home/akabir/akabir_apps/ncbi-blast-2.15.0/bin
+export PATH="$PATH:/home/akabir/akabir_apps/ncbi-blast-2.15.0/bin" # open vim ~/.bashrc
+
+check if the installation is successfull
+>>> blastp
+>>> BLAST query/options error: .... ...
+
+# local alignment based 
+cd-hit -i scop_fa_represeq.fa -o at_th_95 -n 5 -c 0.95 -g 1 -G 0 -aS 0.8
+cd-hit -i scop_fa_represeq.fa -o at_th_70 -n 4 -c 0.70 -g 1 -G 0 -aS 0.8
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_40 -c 0.4 -ce 1e-6 -aS 0.8 -G 0 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_30 -c 0.3 -ce 1e-6 -aS 0.8 -G 0 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_20 -c 0.2 -ce 1e-6 -aS 0.8 -G 0 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_10 -c 0.1 -ce 1e-6 -aS 0.8 -G 0 -g 1
+Note: this is not effective since after 40%, sing -aS is set to 0.8, no new cluster is found
+
+
+# global alignment
+cd-hit -i scop_fa_represeq.fa -o at_th_95 -n 4 -c 0.95 -G 1 -g 1
+cd-hit -i scop_fa_represeq.fa -o at_th_70 -n 4 -c 0.70 -G 1 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_40 -c 0.4 -ce -1 -G 1 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_30 -c 0.3 -ce -1 -G 1 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_20 -c 0.2 -ce -1 -G 1 -g 1
+psi-cd-hit.pl -i scop_fa_represeq.fa -o at_th_10 -c 0.1 -ce -1 -G 1 -g 1
+
