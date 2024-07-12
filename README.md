@@ -1,3 +1,7 @@
+# Welcome to "Zero-shot Remote Homology evaluation of PLMs'" Documentation!
+
+This repository corresponds to the article titled **"In the Twilight Zone: How Well do Protein Language Models Learn Protein Structure?"**.
+
 # plm-zero-shot-remote-homology-evaluation
 plm-zero-shot-remote-homology-evaluation
 
