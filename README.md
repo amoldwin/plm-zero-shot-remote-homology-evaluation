@@ -2,7 +2,43 @@
 
 This repository corresponds to the article titled **"In the Twilight Zone: How Well do Protein Language Models Learn Protein Structure?"**.
 
-# plm-zero-shot-remote-homology-evaluation
+Protein language models (PLMs) based on the transformer architecture are increasingly improving performance on protein prediction tasks, including secondary structure, subcellular localization, Superfamily and Family membership, and more. Despite being trained only on protein sequences, PLMs appear to implicitly learn protein structure. This paper investigates whether PLM-learned sequence representations encode structural information and to what extent. We address this by evaluating PLMs on remote homology prediction, where identifying remote homologs from sequence information alone requires structural knowledge, especially in the ``twilight zone'' of very low sequence identity. Through rigorous testing at progressively lower sequence identities, we profile the performance of PLMs ranging from a few million to a few billion parameters in a zero-shot setting. Our findings indicate that while transformer-based PLMs outperform traditional sequence alignment methods, they still struggle in the twilight zone. This suggests that current PLMs have not sufficiently learned protein structure to address remote homology prediction when sequence signals are weak. We believe this opens the way for further research both on the problem of remote homology prediction and on the broader goal of learning sequence- and structure-rich representations of protein molecules. All code, data, and models in this paper are made publicly available.
+
+## Resources
+
+- [Paper](https://www.tbd)
+- [Data](https://www.tbd)
+- [Code](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation)
+- [Analysis Notebooks](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
+
+## Installation
+
+## Data Preprocessing Steps
+
+## Protein Sequence Embedding Generation
+
+## Remote Homology Analysis
+
+## Authors
+
+* [Anowarul Kabir] (mailto:akabir4@gmu.edu)- Department of Computer Science, George Mason University
+* [Asher Moldwin] (mailto:amoldwin@gmu.edu)- Department of Computer Science, George Mason University
+* [Yana Bromberg] (mailto:yana@bromberglab.org)- Department of Computer Science, Emory University
+* [Amarda Shehu] (mailto:ashehu@gmu.edu)- Department of Computer Science, George Mason University
+
+## How to cite EPBD-BERT?
+```latex
+@article{kabir2024advancing,
+  title={Advancing Transcription Factor Binding Site Prediction Using DNA Breathing Dynamics and Sequence Transformers via Cross Attention},
+  author={Kabir, Anowarul and Bhattarai, Manish and Rasmussen, Kim {\O} and Shehu, Amarda and Bishop, Alan R and Alexandrov, Boian and Usheva, Anny},
+  journal={bioRxiv},
+  pages={2024--01},
+  year={2024},
+  publisher={Cold Spring Harbor Laboratory}
+}
+```
+
+<!-- # plm-zero-shot-remote-homology-evaluation
 plm-zero-shot-remote-homology-evaluation
 
 
@@ -23,5 +59,5 @@ Running our code on SCOPe database:
 
 (3) Run ipynb notebook preprocess_SCOPe_data.ipynb
 
-(4) Run compute_ranking_metrics.py, making sure to set desired parameters for data_name, remote_homology_level, and model_name in the "main" method.
+(4) Run compute_ranking_metrics.py, making sure to set desired parameters for data_name, remote_homology_level, and model_name in the "main" method. -->
 
