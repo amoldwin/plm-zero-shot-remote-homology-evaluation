@@ -32,12 +32,20 @@ conda remove -p .venv/python311_conda_remhom --all -y
 * **Preprocess SCOPe datasets**: SCOPe datasets are publicly available [here](https://scop.berkeley.edu/). Particularly, we download SCOPe 2.08 ASTRAL sequence subsets at different percentage identities (see paper) from [here](https://scop.berkeley.edu/astral/subsets/ver=2.08). Put the downloaded fasta files in "data/SCOPe/downloads_at_ths/" directory. The following notebook will process the data.
     - ```data_preprocessing/preprocess_SCOPe_data.ipynb```
 
-* **Preprocess SCOP2 datasets**: SCOP2 datasets are publicly available [here](https://www.ebi.ac.uk/pdbe/scop/). We download SCOP domain classification and definitions (files: scop-cla-latest.txt, scop-des-latest.txt, scop_fa_represeq_lib_latest.fa ([link](https://www.ebi.ac.uk/pdbe/scop/files))) and put into the "data/SCOP/downloads/" directory. The following notebook will process the data.
+* **Preprocess SCOP2 datasets**: SCOP2 datasets are publicly available [here](https://www.ebi.ac.uk/pdbe/scop/). We download SCOP domain classification and definitions (files: scop-cla-latest.txt, scop-des-latest.txt, scop_fa_represeq_lib_latest.fa ([link](https://www.ebi.ac.uk/pdbe/scop/files))) and put into the "data/SCOP/downloads/" directory. The following notebook will process the downloaded data.
     - ```data_preprocessing/preprocess_SCOP_data.ipynb```
-Next we cluster the processed protein sequences using CD-HIT at different sequence identities. The CD-HIT commands are summarized in "[notes/cdhit_with_blast_setup.txt]()". The clusters at different sequence identity thresholds are in "[data/SCOP/clusters_fa_represeq]()". Next we process the clusters using the following notebook.
+
+    Next we cluster the processed protein sequences using CD-HIT at different sequence identities. The CD-HIT commands are summarized in "[notes/cdhit_with_blast_setup.txt]()". The clusters at different sequence identity thresholds are in "[data/SCOP/clusters_fa_represeq]()". Next we process the clusters using the following notebook.
     - ```data_preprocessing/preprocess_SCOP_clusters.ipynb```
 
 ## Protein Sequence Embedding Generation
+**Requirements**: Different PLM may have dependencies on different python or pytorch or tensorflow version. Therefore, we keep separate virtual environment. Follow specific PLM insallation guide from their official github pages given in notes/plm_venvs_setup.md. Example commands for generating embeddings using different models are given below.
+```bash
+    python -m generate_embeddings.proteinbert --data_name=SCOPe
+    python -m generate_embeddings.tapebert --data_name=SCOPe
+    python -m generate_embeddings.esm --model_name=esm1b_t33_650M_UR50S --data_name=SCOPe
+    python -m generate_embeddings.prottrans --model_name=prottrans_t5_bfd --data_name=SCOPe
+```
 
 ## Remote Homology Analysis
 
