@@ -18,7 +18,7 @@ In this study, we keep individual python virtual environment for each PLM to gen
 # Generic python environment
 conda create -c conda-forge -p .venv/python311_conda_remhom python=3.11 -y
 conda activate .venv/python311_conda_remhom
-pip install pandas joblib matplotlib seaborn scikit-learn
+pip install pandas biopython joblib matplotlib seaborn scikit-learn
 
 
 # To deactivate and remove the venv
@@ -27,6 +27,11 @@ conda remove -p .venv/python311_conda_remhom --all -y
 ```
 
 ## Data Preprocessing Steps
+* **Activate venv**: ```conda activate .venv/python311_conda_remhom```.
+* **Preprocess SCOPe datasets**: Download SCOPe datasets: SCOPe datasets are publicly available [here](https://scop.berkeley.edu/). Particularly, we download SCOPe 2.08 ASTRAL sequence subsets at different percentage identities (see paper) from [here](https://scop.berkeley.edu/astral/subsets/ver=2.08). Put the downloaded fasta files in "data/SCOPe/downloads_at_ths/" directory.
+    - ```data_preprocessing/preprocess_SCOPe_data.ipynb```
+
+
 
 ## Protein Sequence Embedding Generation
 
