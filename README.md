@@ -12,7 +12,7 @@ Protein language models (PLMs) based on the transformer architecture are increas
 - [Analysis Notebooks](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
 
 ## Installation
-In this study, we keep individual python virtual environment for each PLM to generate embeddings using that PLM and one generic environment for other things, such as data preprocessing, analysis and so on. It is recommended to follow the corresponding instructions to setup repositories of the PLMs. However, we provide our used setup commands in the notes directory.
+In this study, we keep individual python virtual environment for each PLM to generate embeddings using that PLM and one generic environment for other things, such as data preprocessing, analysis and so on. It is recommended to follow the corresponding instructions to setup repositories of the PLMs. However, we provide our used setup commands in the [notes](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation/tree/main/notes) directory.
 
 ```bash
 # Generic python environment

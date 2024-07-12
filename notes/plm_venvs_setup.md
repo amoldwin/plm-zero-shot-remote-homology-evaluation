@@ -1,14 +1,14 @@
-export PYTHONPATH=$PYTHONPATH:$pwd/remote_homologs
+<!-- export PYTHONPATH=$PYTHONPATH:$pwd/remote_homologs -->
 
+### To remove conda venv
 ```bash
-# To remove conda venv
 conda info --envs
 conda deactivate
 conda remove -p path/to/venv --all -y
 ```
 
+### Installation of Generic environment (pytorch)
 ```bash
-# Installation of Generic environment (pytorch)
 conda create -c conda-forge -p .venv/python311_conda_0 python=3.11 -y
 conda activate .venv/python311_conda_0
 pip install --upgrade pip
