@@ -39,4 +39,4 @@ coverage.xml
 deprecated/
 cache
 logs_slurm
-data/SCOPe/downloads_at_ths/astral*
+data/SCOPe/downloads_at_th/astral*
