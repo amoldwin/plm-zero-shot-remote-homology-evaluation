@@ -6,7 +6,7 @@ Protein language models (PLMs) based on the transformer architecture are increas
 
 ## Resources
 
-- [Paper](https://www.tbd) Will be added soon.
+- [Paper](https://academic.oup.com/bioinformaticsadvances/article/4/1/vbae119/7735315)
 - [Data](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation/tree/main/data)
 - [Code](https://github.com/amoldwin/plm-zero-shot-remote-homology-evaluation)
 - [Analysis](https://github.com/lanl/EPBD-BERT/tree/main/analysis)
@@ -104,13 +104,18 @@ HHblits predictions can be generated on SCOPe by following the directions [here]
 
 ## How to cite?
 ```latex
-@article{?,
-  title={In the Twilight Zone: How Well do Protein Language Models Learn Protein Structure?},
-  author={Kabir, Anowarul and Moldwin, Asher and Bromberg, Yana and Shehu, Amarda},
-  journal={?},
-  pages={?},
-  year={2024},
-  publisher={?}
+@article{Kabir2024,
+    title = {In the twilight zone of protein sequence homology: do protein language models learn protein structure?},
+    volume = {4},
+    ISSN = {2635-0041},
+    url = {http://dx.doi.org/10.1093/bioadv/vbae119},
+    DOI = {10.1093/bioadv/vbae119},
+    number = {1},
+    journal = {Bioinformatics Advances},
+    publisher = {Oxford University Press (OUP)},
+    author = {Kabir,  Anowarul and Moldwin,  Asher and Bromberg,  Yana and Shehu,  Amarda},
+    editor = {Gogovi,  Gideon},
+    year = {2024}
 }
 ```
 
