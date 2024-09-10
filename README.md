@@ -47,6 +47,33 @@ conda remove -p .venv/python311_conda_remhom --all -y
     python -m generate_embeddings.esm --model_name=esm1b_t33_650M_UR50S --data_name=SCOPe
     python -m generate_embeddings.prottrans --model_name=prottrans_t5_bfd --data_name=SCOPe
 ```
+## HHblits Alignment-based Homology Detection
+
+HHblits predictions can be generated on SCOPe by following the directions [here](https://github.com/soedinglab/hh-suite) and [here](https://github.com/soedinglab/hh-suite/wiki). The step-by-step instructions for doing this are as follows, but note that some settings may need to be changed depending on your available resources.
+
+1. **Install HHblits** using the linked instructions and download Uniclust30. MPI is preferable to OpenMP when multiple CPUs are needed, such as when computing Multiple Sequence Alignments, but we also used OpenMP for querying, when multithreading on a single CPU was needed.
+
+2. **Create a Database of HHblits-compatible MSAs:** Using the SCOPe FASTA file (we used the entire database) and convert to an FFIndex database:
+    ```bash
+    ffindex_from_fasta -s scope_fas.ff{data,index} scope.fa
+    ```
+
+3. **Create Multiple Sequence Alignments for SCOPe:** When using the entire database, this becomes very computationally intensive and requires trial and error to find the correct settings. For example, we had access to 10 intel nodes that could be used in parallel. Each node had a maximum RAM allocation of 3.4GB, which required us to use the `maxmem` option to ensure that the job could complete successfully. See `hhblits_scripts/build_MSA_n3.sh` for our script.
+
+4. **Run** `compute_HHMs.sh` and `compute_context_states.sh`
+
+5. **Run** `HHblits_final_setup.sh`
+
+6. **Split SCOPe into chunks** as in cell 10 of `compute_ranking_metrics_debug_hhblits.ipynb`
+
+7. **Run** `ffindex_chunks.sh`
+
+8. **Run** `test_hhblits_query_chunks.sh`
+
+9. **Run** `compile_hhblits_scores_dct.sh`
+
+10. **Run** `compute_ranking_metrics_hhblits.py`
+
 
 ## HHblits-based remote homology
 
