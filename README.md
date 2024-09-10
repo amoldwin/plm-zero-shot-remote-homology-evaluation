@@ -48,6 +48,8 @@ conda remove -p .venv/python311_conda_remhom --all -y
     python -m generate_embeddings.prottrans --model_name=prottrans_t5_bfd --data_name=SCOPe
 ```
 
+## HHblits-based remote homology
+
 ## Remote Homology Analysis
 * **Activate venv**: ```conda activate .venv/python311_conda_remhom```.
 ```bash
